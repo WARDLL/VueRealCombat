@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+    <!-- 解决轮播图首图顺序问题 -->
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for="item of list" :key="item.id">
         <!-- 循环图片 并绑定图片地址 -->
         <img class="swiper-img" :src="item.imgUrl">
       </swiper-slide>
@@ -14,26 +15,22 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data() {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         // 让轮播插件支持循环轮播
         loop: true
-      },
-      // 循环轮播
-      swiperList: [
-        {
-          id: '0001',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1809/8a/ef38d29f2791f02.jpg_750x200_c2defee1.jpg'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1809/bb/3796236479c84d02.jpg_750x200_57d68258.jpg'
-        }
-      ]
+      }
+    }
+  },
+  // 解决轮播图首图顺序问题
+  computed: {
+    showSwiper() {
+      return this.list.length
     }
   }
 }

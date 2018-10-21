@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,34 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data() {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/p0/1409/16/1f41f64cbe3c64294e20ff6782f9017a.jpg_200x200_d6a62b3b.jpg',
-          title: '国际大巴扎歌舞大剧院',
-          desc: '新疆乌鲁木齐市天山区南端二道桥商业圈'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/p0/1804/27/27390665a17dfb30a3.img.jpg_200x200_6a9d04b7.jpg',
-          title: '新疆古生态园（野马美术馆）',
-          desc:
-            '新疆省乌鲁木齐市高新区昆明路158号野马国际大厦副楼4L新疆古生态园'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/p0/1804/c6/c6314468523a1c36a3.img.jpg_200x200_8acfda8d.jpg',
-          title: '丝路秀',
-          desc:
-            '新疆维吾尔自治区乌鲁木齐市天山区龙泉街68号乌鲁木齐君邦天山饭店内'
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
