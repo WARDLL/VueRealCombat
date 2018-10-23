@@ -2,8 +2,10 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cities="cities" :hotCities="hotCities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <!-- 父组件通过属性的方式传递给子组件List.vue -->
+    <city-list :cities="cities" :hotCities="hotCities" :letter="letter"></city-list>
+    <!-- 监听change事件 -->
+    <city-alphabet :cities="cities" @change="handleLetterChange"></city-alphabet>
   </div>
 
 </template>
@@ -25,7 +27,9 @@ export default {
   data() {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      // 父组件通过属性的方式传递给子组件List.vue
+      letter: ''
     }
   },
   methods: {
@@ -39,6 +43,9 @@ export default {
         this.cities = data.cities
         this.hotCities = data.hotCities
       }
+    },
+    handleLetterChange(letter) {
+      this.letter = letter
     }
   },
   mounted() {

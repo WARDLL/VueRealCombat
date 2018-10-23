@@ -18,7 +18,7 @@
                 </div>
             </div>
             <!-- 对象循环 key值=key来定义-->
-            <div class="area" v-for="(item,key) of cities" :key="key">
+            <div class="area" v-for="(item,key) of cities" :key="key" :ref="key">
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
                     <!-- 二次循环 -->
@@ -35,10 +35,22 @@ export default {
   name: 'CityList',
   props: {
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted() {
     this.scroll = new Bscoll(this.$refs.wrapper)
+  },
+  //   监听letter的变化
+  watch: {
+    letter() {
+      if (this.letter) {
+        //   如果letter不为空调用⬇️
+        // 让better-scroll滚动区域自动滚动到某一元素上
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
