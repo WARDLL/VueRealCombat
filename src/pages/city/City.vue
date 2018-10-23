@@ -1,7 +1,7 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
+    <city-search :cities="cities"></city-search>
     <!-- 父组件通过属性的方式传递给子组件List.vue -->
     <city-list :cities="cities" :hotCities="hotCities" :letter="letter"></city-list>
     <!-- 监听change事件 -->
