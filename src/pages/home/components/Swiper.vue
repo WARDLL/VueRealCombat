@@ -23,7 +23,8 @@ export default {
       swiperOption: {
         pagination: '.swiper-pagination',
         // 让轮播插件支持循环轮播
-        loop: true
+        loop: true,
+        autoplay: 3000
       }
     }
   },
