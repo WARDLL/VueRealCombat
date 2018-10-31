@@ -21,5 +21,13 @@ export default new Router({
     path: '/detail/:id',
     name: 'Detail',
     component: Detail
-  }]
+  }],
+  // 解决滚动行为
+  // 每一次路由切换时，让新显示的页面X为0Y也为0
+  scrollBehavior(to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
