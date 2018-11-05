@@ -40,12 +40,12 @@ export default {
     }
   },
   // 每一次页面展示的时候会执行
-  activated() {
+  mounted() {
     // 对window做事件的绑定
     window.addEventListener('scroll', this.handleScroll)
   },
   // 页面即将被隐藏或即将被替换成新页面的时候执行
-  deactivated() {
+  unmounted() {
     // 页面隐藏时再把全局事件解绑
     window.removeEventListener('scroll', this.handleScroll)
   }

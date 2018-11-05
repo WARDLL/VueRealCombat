@@ -6,6 +6,8 @@ import router from './router'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import store from './store/index'
+// 解决白屏安卓兼容性问题
+import 'babel-polyfill'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'

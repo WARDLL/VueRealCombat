@@ -1,6 +1,7 @@
 <template>
   <ul class="list">
-    <li class="item" v-for="item of letters" :key="item" :ref="item" @touchstart="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd" @click="handleLetterClick">{{item}}</li>
+    <!-- .prevent为时间修饰符，可以阻止touchstart的默认行为 -->
+    <li class="item" v-for="item of letters" :key="item" :ref="item" @touchstart.prevent="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd" @click="handleLetterClick">{{item}}</li>
   </ul>
 </template>
 
