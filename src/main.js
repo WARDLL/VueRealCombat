@@ -8,7 +8,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import store from './store/index'
 // 解决白屏安卓兼容性问题
 import 'babel-polyfill'
+// 重置页面样式，统一样式
 import 'styles/reset.css'
+// 解决多倍屏1像素边框问题
 import 'styles/border.css'
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
